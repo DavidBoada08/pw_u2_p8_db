@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div v-show="mostar">
+       <h1 >Estudiante Guardado</h1> 
+    </div>
     <label for="id_nombre">Nombre:</label>
     <input v-model="nuevoNombre" id="id_nombre" type="text" />
 
@@ -17,16 +20,30 @@
 
     <button v-on:click="agregarEstudiante()">Agregar</button>
     
-    <ul>
-      <!-- <li v-for="estu in lista" :key="estu.nombre"> Nombre: {{ estu.nombre }} - Apellido: {{ estu.apellido }}</li> -->
-      <li
-        v-for="{ nombre, apellido, genero, edad, curso } in lista"
-        :key="nombre"
-      >
-        Nombre: {{ nombre }} - Apellido: {{ apellido }} - Genero: {{ genero }} -
-        Edad {{ edad }} - Curso {{ curso }}
-      </li>
-    </ul>
+    
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Genero</th>
+          <th>Edad</th>
+          <th>Curso</th>
+          <th class="action">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="{ nombre, apellido, genero, edad, curso } in lista" :key="nombre">
+          <td>{{ nombre }}</td>
+          <td>{{ apellido }}</td>
+          <td>{{ genero }}</td>
+          <td>{{ edad }}</td>
+          <td>{{ curso }}</td>
+          <th><button class="bVER">Ver</button></th>
+        </tr>
+      </tbody>
+
+    </table>
   </div>
 </template>
  
@@ -85,6 +102,7 @@ export default {
           curso: "Vue",
         },
       ],
+      mostar: false,
     };
   },
   //metodos
@@ -99,7 +117,12 @@ export default {
       };
       //agregar un nuevo estudiante a la lista
       this.lista.unshift(nuevo);
-      // this.lista.push(nuevo);
+      this.mostar = true;
+      //this.nombre=null;     
+
+      setTimeout(()=>{
+        this.mostar = false;
+      }, 3000);
     },
   },
 };
@@ -158,4 +181,29 @@ li {
   color: #333;
   font-size: 25px;
 }
+table {
+    margin: 15px;
+  width: 100%;
+  border-collapse: collapse;
+}
+tbody {
+  background: #d0e6fd;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 25px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.bVER {
+  background: #78aae0;
+  padding: auto;
+  margin:5px 0px;
+  color: #333;
+  font-size: 15px;
+  width: auto;
+}
+
 </style>

@@ -4,21 +4,21 @@
 
   
     
-    <EstudianteView />
+    <EstudianteTablaView />
   </div>
 </template>
 
 <script>
 import HolaMundoVue from "@/view/HolaMundoVue.vue";
 import ContadorView from "@/view/ContadorView.vue";
-import EstudianteView from "@/view/EstudianteView.vue";
+import EstudianteTablaView from "@/view/EstudianteTablaView.vue";
 
 export default {
   name: "App",
   components: {
     HolaMundoVue,
     ContadorView,
-    EstudianteView,
+    EstudianteTablaView,
   },
 };
 </script>
