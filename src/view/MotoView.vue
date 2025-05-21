@@ -1,14 +1,15 @@
 <template>
-  <Contador/>
+    <div>
+        <Moto />
+    </div>
 </template>
 
 <script>
-import Contador from '@/components/Contador.vue'
+import Moto from '@/components/Moto.vue';
 export default {
     components: {
-        Contador
+        Moto,
     },
-
 
 }
 </script>

@@ -1,24 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+   
 
-  
-    
-    <EstudianteTablaView />
+    <MotoView/>
   </div>
+    
+    
 </template>
 
 <script>
-import HolaMundoVue from "@/view/HolaMundoVue.vue";
-import ContadorView from "@/view/ContadorView.vue";
-import EstudianteTablaView from "@/view/EstudianteTablaView.vue";
 
+
+import MotoView from './view/MotoView.vue';
 export default {
   name: "App",
   components: {
-    HolaMundoVue,
-    ContadorView,
-    EstudianteTablaView,
+ 
+   MotoView
+    
   },
 };
 </script>
