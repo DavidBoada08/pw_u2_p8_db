@@ -128,7 +128,7 @@ export default {
 };
 </script>
  
-<style>
+<style scoped >
 .container {
   background: white;
   border: 1px solid;

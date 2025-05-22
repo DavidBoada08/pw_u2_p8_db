@@ -1,10 +1,9 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+<div>
 
   
-    
-    <EstudianteTablaView />
+    <PreguntaView/>
+   
   </div>
 </template>
 
@@ -12,6 +11,7 @@
 import HolaMundoVue from "@/view/HolaMundoVue.vue";
 import ContadorView from "@/view/ContadorView.vue";
 import EstudianteTablaView from "@/view/EstudianteTablaView.vue";
+import PreguntaView from "@/view/PreguntaView.vue";
 
 export default {
   name: "App",
@@ -19,6 +19,7 @@ export default {
     HolaMundoVue,
     ContadorView,
     EstudianteTablaView,
+    PreguntaView,
   },
 };
 </script>
