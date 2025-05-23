@@ -1,45 +1,72 @@
 <template>
   <div class="container">
     <img
-      src="https://images.pexels.com/photos/17807193/pexels-photo-17807193/free-photo-of-naturaleza-camara-fotografia-hojas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      :src="imagen"
       alt="No se pudo cargar"
     />
     <div class="container-2">
       <div class="pregunta-container">
-        <input
-          v-model="pregunta"
-          type="text"
-          placeholder="Hazme una pregunta"
-        />
+        <input v-model="pregunta" placeholder="Hazme una pregunta" />
         <p>Recuerda terminar con un signo de pregunta (?)</p>
+        <div v-show="esValida"> 
         <h2>{{ pregunta }}</h2>
         <h1>{{ respuesta }}</h1>
+        </div>
       </div>
     </div>
   </div>
 </template>
  
 <script>
+import { consultarRespuestaFachada } from "@/clients/YesNoClient.js";
+
 export default {
   data() {
     return {
       pregunta: null,
       respuesta: null,
+      imagen:null,
+      esValida: false,
     };
   },
   watch: {
-    pregunta(value, oldValue) {
-      console.log("valor Actual: ", value);
-      console.log("valor Anterior: ", oldValue);
-    }
-  }
+    pregunta(value, oldValue) {3
+     
+      this.esValida = false;
+      if (value.includes("?")) {
+        this.esValida = true;
+        console.log("valor actual: " + value);
+        console.log("valor anterior: " + oldValue);
+        //Aqui deberia consultar el API
+        this.consumirAPI();
+      }
+    },
+  },
+  methods: {
+    async consumirAPI() {
+      this.respuesta = "Pensando...";
+      // método asincrono
+      const res = await consultarRespuestaFachada();
+       console.log(res);
+      console.log(res.image);
+      console.log(res.answer);
+      console.log(res.forced);
+      this.respuesta = res.answer;
+      this.imagen = res.image;
+
+
+    },
+  },
 };
 </script>
  
 <style scoped>
 .container-2,
 img {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   height: 100vh;
   width: 100vw;
   max-height: 100%;
