@@ -2,7 +2,7 @@
 <div>
 
   
-    <PreguntaView/>
+    <DigimonView/>
    
   </div>
 </template>
@@ -12,6 +12,8 @@ import HolaMundoVue from "@/view/HolaMundoVue.vue";
 import ContadorView from "@/view/ContadorView.vue";
 import EstudianteTablaView from "@/view/EstudianteTablaView.vue";
 import PreguntaView from "@/view/PreguntaView.vue";
+import DigimonView from "@/view/DigimonView.vue";    
+
 
 export default {
   name: "App",
@@ -20,6 +22,7 @@ export default {
     ContadorView,
     EstudianteTablaView,
     PreguntaView,
+    DigimonView,
   },
 };
 </script>
